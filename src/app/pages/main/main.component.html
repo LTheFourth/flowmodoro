@@ -1,0 +1,40 @@
+<div class="container w-100">
+  <div class="w-100 flex justify-center pb-5">
+    <span
+      class="rounded-full border border-gray-400 p-2 shadow-xl px-5 transition cursor-default text-black flex select-none font-bold bg-green-200"
+    >
+      @switch (isBreaking()) { @case (false) {
+      <img src="assets/svg/focus.svg" alt="" class="mr-1" />
+      Focusing } @default {
+      <img src="assets/svg/break.svg" alt="" class="mr-1" />
+      Breaking } }
+    </span>
+  </div>
+  <div class="counter my-10 text-9xl font-bold text-center select-none">
+    <h1 class="tracking-wider scale-x-125">{{ getMinutes }}</h1>
+    <h1 class="tracking-wider scale-x-125">{{ getSecond }}</h1>
+  </div>
+  <div class="flex flex-col gap-4 justify-center items-center">
+    @switch (isPause()) { @case (true) {
+    <button
+      class="rounded-xl bg-green-400 w-20 h-14 flex justify-center items-center"
+      (click)="isBreaking() ? startBreaking() : startSession()"
+    >
+      <img src="assets/svg/play.svg" alt="" class="w-4" />
+    </button>
+    } @default {
+    <button
+      class="rounded-xl bg-green-400 w-20 h-14 flex justify-center items-center"
+      (click)="confirmStarting()"
+    >
+      <img src="assets/svg/pause.svg" alt="" />
+    </button>
+    } }
+
+    <button
+      class="rounded-full bg-green-200 w-14 h-14 items-center text-3xl font-bold mt-4"
+    >
+      ...
+    </button>
+  </div>
+</div>
